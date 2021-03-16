@@ -10,7 +10,7 @@ namespace ClassicHeist
         {
             int LockTalent = bank.VaultScore - SkillLevel;
             Console.WriteLine($"{Name} is picking the locks. Decreased security by {SkillLevel}.");
-            if (LockTalent == 0)
+            if (LockTalent <= 0)
             {
                 Console.WriteLine($"{Name} has cracked the safe!");
             }

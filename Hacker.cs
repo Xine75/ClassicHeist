@@ -10,9 +10,9 @@ namespace ClassicHeist
         {
             int HackerTalent = bank.AlarmScore - SkillLevel;
             Console.WriteLine($"{Name} is hacking the alarm system. Decreased security by {SkillLevel}.");
-            if (HackerTalent == 0)
+            if (HackerTalent <= 0)
             {
-                Console.WriteLine($"{Name} has cracked the safe!");
+                Console.WriteLine($"{Name} has disabled the alarm system!");
             }
         }
     }

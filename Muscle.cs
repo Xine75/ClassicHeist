@@ -10,7 +10,7 @@ namespace ClassicHeist
         {
             int MuscleTalent = bank.SecurityGuardScore - SkillLevel;
             Console.WriteLine($"{Name} is cancelling the security guards. Decreased security by {SkillLevel}.");
-            if (MuscleTalent == 0)
+            if (MuscleTalent <= 0)
             {
                 Console.WriteLine($"{Name} has dropped all the security guards!");
             }
