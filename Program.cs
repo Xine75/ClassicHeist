@@ -58,7 +58,7 @@ namespace ClassicHeist
                 string newOp = Console.ReadLine();
                 if (newOp == "")
                 {
-                    Console.WriteLine("Looks like you've completed your crew!");
+                    Console.WriteLine("Looks like you've completed your crew! \n Time to begin THE HEIST");
                     return;
                 }
                 else
@@ -111,6 +111,61 @@ namespace ClassicHeist
                     BuildYourCrew();
                 }
             }
+
+            Bank mark = new Bank()
+            {
+                CashOnHand = new Random().Next(50000, 1000001),
+                AlarmScore = new Random().Next(1, 101),
+                VaultScore = new Random().Next(1, 101),
+                SecurityGuardScore = new Random().Next(1, 101),
+            };
+
+            Recon();
+            void Recon()
+            {
+                string MostSecure;
+                string LeastSecure;
+
+                //most secure
+
+                if (mark.AlarmScore > mark.VaultScore && mark.AlarmScore > mark.SecurityGuardScore)
+                {
+                    MostSecure = "Alarm Score";
+                }
+                else if (mark.VaultScore > mark.AlarmScore && mark.VaultScore > mark.SecurityGuardScore)
+                {
+                    MostSecure = "Vault Score";
+                }
+                else
+                {
+                    MostSecure = "Security Guard Score";
+                }
+
+                //lease secure
+                if (mark.AlarmScore < mark.VaultScore && mark.AlarmScore < mark.SecurityGuardScore)
+                {
+                    LeastSecure = "Alarm Score";
+                }
+                else if (mark.VaultScore < mark.AlarmScore && mark.VaultScore < mark.SecurityGuardScore)
+                {
+                    LeastSecure = "Vault Score";
+                }
+                else
+                {
+                    LeastSecure = "Security Guard Score";
+                }
+
+                Console.WriteLine($"The bank's most secure system is {MostSecure}.");
+                Console.WriteLine($"The bank's least secure system is {LeastSecure}.");
+
+
+
+
+
+            }
+
+
+
         }
     }
 }
